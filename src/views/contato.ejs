@@ -1,0 +1,60 @@
+<%- include('includes/head') %>
+    <%- include('includes/nav') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 my-5">
+                    <h1 class="display-1 text-center">Contatos</h1>
+                    <p class="text-center lead">Crie ou edite seus contatos aqui!</p>
+
+
+                    <%- include('includes/messages') %>
+                        <% if (contact._id) { %>
+                            <form action="/contato/edit/<%= contact._id %>" method="POST">
+                                <% } else { %>
+                                    <form action="/contato" method="POST">
+                                        <% } %>
+                                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                            <div class="mb-3">
+                                                <label class="form-label my-2">Nome</label>
+                                                <input value="<%= contact.name %>" type=" text" class="form-control"
+                                                    name="name">
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Sobrenome</label>
+                                                <input value="<%= contact.lastname %>" type="text" class="form-control"
+                                                    name="lastname">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Email</label>
+                                                <input value="<%= contact.email %>" type="email" class="form-control"
+                                                    name="email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Telefone</label>
+                                                <input value="<%= contact.phone %>" type="tel" class="form-control"
+                                                    name="phone">
+                                            </div>
+                                            <% if (contact.dataCreate) { %>
+                                                <p> Criado em
+                                                    <%= `0${contact.dataCreate.getUTCDate()}/0${contact.dataCreate.getMonth()
+                                                        + 1}/${contact.dataCreate.getFullYear()}` %>
+                                                </p>
+                                                <% } %>
+
+                                                    <% if (contact.name) { %>
+                                                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                                                        <% } else { %>
+                                                            <button type="submit" class="btn btn-primary">Cadastrar
+                                                                contato</button>
+                                                            <% } %>
+                                    </form>
+
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <%- include('includes/footer') %>

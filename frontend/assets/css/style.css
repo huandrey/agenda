@@ -10,3 +10,13 @@
 .content {
     margin-bottom: 50px;
 }
+
+.minhadiv{    
+    position: relative;
+    left: 80.8%;
+    /* margin-left: 50px; */
+}
+
+a {
+    text-decoration: none;
+}

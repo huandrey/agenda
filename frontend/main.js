@@ -3,4 +3,10 @@ import 'regenerator-runtime/runtime';
 
 import './assets/css/style.css';
 
-console.log('Olá mundo 3');
+// import Form from './modules/Form';
+
+// const cadastro = new Form('.cadastro')
+// const login = new Form('.login');
+
+// cadastro.init()
+// login.init()
